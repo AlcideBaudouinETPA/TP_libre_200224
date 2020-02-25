@@ -29,7 +29,7 @@ int main(){
 
 
 printf("un monstre vous surprend durant votre sieste vous decidez de le combattre.\n");
-printf("Le Grand Chien-Loup possede %d points de vie.\n",pvMonstre);
+printf("Le craqueleur possede %d points de vie.\n",pvMonstre);
 printf("Vous possedez %d points de vie.\n",pvJoueur);
 		while (pointMagie <=60000){
 			pointMagie++;
@@ -40,30 +40,30 @@ printf("Vous possedez %d points de vie.\n",pvJoueur);
 		scanf("%d",&choixJoueur);
 
 		if (choixJoueur==1) {
-			printf("Vous frappez le Grand Chien-Loup et lui infligez %d points de degats.\n",degatsJoueur);
+			printf("Vous frappez le craqueleur et lui infligez %d points de degats.\n",degatsJoueur);
 			pvMonstre = pvMonstre-degatsJoueur;
-			printf("Le Grand Chien-Loup possede desormais %d points de vie.\n",pvMonstre);
+			printf("Le craqueleur possede desormais %d points de vie.\n",pvMonstre);
 		}
 		else if (choixJoueur==2) {
-			printf("Le Grand Chien-Loup attaque mais vous vous defendez, il vous enleve quand meme 5 points de vie.\n");
+			printf("Le craqueleur attaque mais vous vous defendez, il vous enleve quand meme 5 points de vie.\n");
 			pvJoueur = pvJoueur-degatsMonstre/4;
-			printf("Le Grand Chien-Loup possede desormais %d points de vie.\n",pvMonstre);
+			printf("Le craqueleur possede desormais %d points de vie.\n",pvMonstre);
 
 
 		}
 		else if (choixJoueur==3) {
-			printf("vous infliger un poison au Grand Chien-Loup il ne pourra plus sans defaire avant la fin de la partie, ce poison lui infligera %d de degats a chaque tour.\n",degatsPoison );
+			printf("vous infliger un poison au craqueleur il ne pourra plus sans defaire avant la fin de la partie, ce poison lui infligera %d de degats a chaque tour.\n",degatsPoison );
 			printf("cependant ce poison te coutera 3 points de magie.\n");
 			pvMonstre = pvMonstre-degatsPoison;
-			printf("Le Grand Chien-Loup possede desormais %d points de vie.\n",pvMonstre);
+			printf("Le craqueleur possede desormais %d points de vie.\n",pvMonstre);
 		}
 		else if (choixJoueur==4) {
-			printf("vous décidez de vous débarrasser du poison mit par le Grand Chien-Loup.\n");
+			printf("vous décidez de vous débarrasser du poison mit par le craqueleur.\n");
 			degatsPoisonMonstre=0;
 		}
 		printf("(1) il attaque (2) il t'empoisonne\n");
 		if (nbgen==1){
-			printf("Le Grand Chien-Loup vous attaque, il vous enleve %d points de vie.\n",degatsMonstre);
+			printf("Le craqueleur vous attaque, il vous enleve %d points de vie.\n",degatsMonstre);
 		}
 			pvJoueur = pvJoueur-degatsMonstre;
 		printf("Vous possedez maintenant %d points de vie.\n",pvJoueur);
@@ -71,7 +71,7 @@ printf("Vous possedez %d points de vie.\n",pvJoueur);
 			if (nbgen==2){
 				for (compteurPoison>0;compteurPoison--;){
 					compteurPoison--;
-			printf("Le Grand Chien-Loup vous empoisonne, il vous enleve %d points de vie.\n",degatsMonstre);
+			printf("Le craqueleur vous empoisonne, il vous enleve %d points de vie.\n",degatsMonstre);
 			printf("vous garderez ce poison en vous pendant 3 tours.  \n");
 				}	
 			}
@@ -84,8 +84,9 @@ printf("Vous possedez %d points de vie.\n",pvJoueur);
 		}
 		
 		if (pvJoueur<=0) {
-	printf("Vous tombez sous les coups de crocs du Grand Chien-Loup.\n");
+	printf("Vous tombez sous les coups du craqueleur.\n");
     printf("vous perdez %d dollars",gainargent);
+    argentJoueur=argentJoueur-gainargent;
 	}
 	}
 int gainxp = 300;
@@ -94,7 +95,7 @@ int gainargent = 100;
 int argentJoueur = 500;
 
 	if (pvMonstre<=0) {
-		printf("Le Grand Chien-Loup a succombe a ses blessures.");
+		printf("Le craqueleur a succombe a ses blessures.");
 		printf("vous gagnez %d d'experience \n",gainxp);
 		xp=xp+gainxp;
 		printf("xp : %d\n",xp);
@@ -124,11 +125,11 @@ typedef struct Objet objet;
 
 
 objet epee = {"lame du craqueleur", 100, "Une lame ancestrale servant a ecraser toutes creatures vivantes"};
-objet casque = {"casque du crasueleur",130, "casque taille dans la pierre valant son pesant d'or"};
-objet potion = {"ceinture du craqueleur",200, "porter cetteceinture fera de vous un aventurier confirmer"};
-objet lance = {"bottes du craqueleur",140, "incroyablement lourdes elles vous donneront une excuse dans un combat perdu d'avance"};
-objet armure = {"craquelocape",130, "une cape de pierre excellente pour vous defendre contre les jets de pierre"};
-objet peluche = {"craquamulette",50, "une amulette donnant fiere allure malgre la difficulte de la supporter"};
+objet casque = {"casque du craqueleur",130, "casque taille dans la pierre valant son pesant d'or"};
+objet ceinture = {"ceinture du craqueleur",200, "porter cetteceinture fera de vous un aventurier confirmer"};
+objet bottes = {"bottes du craqueleur",140, "incroyablement lourdes elles vous donneront une excuse dans un combat perdu d'avance"};
+objet cape = {"craquelocape",130, "une cape de pierre excellente pour vous defendre contre les jets de pierre"};
+objet amulette = {"craquamulette",50, "une amulette donnant fiere allure malgre la difficulte de la supporter"};
 
 
 int main()
@@ -161,53 +162,53 @@ int main()
     	printf("Que veux-tu acheter %s ?\n", prenom);
     	printf(" [1] %s | %d | %s \n", epee.nomObjet, epee.prix, epee.caracteristique);
     	printf(" [2] %s | %d | %s \n", casque.nomObjet, casque.prix, casque.caracteristique);
-    	printf(" [3] %s | %d | %s \n", potion.nomObjet, potion.prix, potion.caracteristique);
-    	printf(" [4] %s | %d | %s \n", lance.nomObjet, lance.prix, lance.caracteristique);
-    	printf(" [5] %s | %d | %s \n", armure.nomObjet, armure.prix, armure.caracteristique);
-    	printf(" [6] %s | %d | %s \n", peluche.nomObjet, peluche.prix, peluche.caracteristique);
+    	printf(" [3] %s | %d | %s \n", ceinture.nomObjet, ceinture.prix, ceinture.caracteristique);
+    	printf(" [4] %s | %d | %s \n", bottes.nomObjet, bottes.prix, bottes.caracteristique);
+    	printf(" [5] %s | %d | %s \n", cape.nomObjet, cape.prix, cape.caracteristique);
+    	printf(" [6] %s | %d | %s \n", amulette.nomObjet, amulette.prix, amulette.caracteristique);
 
     		scanf("%d", &itemachat);
 
     		if (itemachat == 1){
-    			printf("Okay Niquel Vla l'epee \n");
+    			printf("Cette arme est difficile a utiliser, en revanche elle te sera tres utile pour taper plus de craqueleur. \n");
     			argentJoueur = argentJoueur - epee.prix;
 				epee1 = epee1 + 1;
-    			printf("Il te reste %d\n", argentJoueur);
+    			printf("vous avez %d\n", argentJoueur);
     		}
 
     		if (itemachat == 2){
-    			printf("Okay Perfect Vla le casque \n");
+    			printf("Avec ce casque tu y verras pas plus clair dans ton avenir, cependant elle t'aidera a avoir plus de force dans le crane. \n");
     			argentJoueur = argentJoueur - casque.prix;
 				bouclier1 = bouclier1 + 1;
-    			printf("Zyva il te reste %d\n", argentJoueur );
+    			printf("vous avez %d\n", argentJoueur );
     		}
 
     		if (itemachat == 3){
-    			printf("... Eu... ok, voilà la potion \n");
-    			argentJoueur = argentJoueur - potion.prix;
+    			printf("Voila la ceinture. Elle t'aidera a prendre plus d'objet dans ton inventaire. \n");
+    			argentJoueur = argentJoueur - ceinture.prix;
 				potion1 = potion1 + 1;
-    			printf("Zyva il te reste %d\n", argentJoueur );
+    			printf("vous avez %d\n", argentJoueur );
     		}
 
     		if (itemachat == 4){
-    			printf("Okay zyva la Lance \n");
-    			argentJoueur = argentJoueur - lance.prix;
+    			printf("Tu verras, elles sont pas tres lourdes malgre leurs matieres. \n");
+    			argentJoueur = argentJoueur - bottes.prix;
 				lance1 = lance1 + 1;
-    			printf("Zyva il te reste %d\n", argentJoueur );
+    			printf("vous avez %d\n", argentJoueur );
     		}
 
     		if (itemachat == 5){
-    			printf("'Kay vla l'armure, protège toi bien ptit chou \n");
-    			argentJoueur = argentJoueur - armure.prix;
+    			printf("Prend cette cape sur ton dos, elle ne pesera pas si lourd quand elle sera sur ton dos. \n");
+    			argentJoueur = argentJoueur - cape.prix;
 				armure1 = armure1 + 1;
-    			printf("Zyva il te reste %d\n", argentJoueur );
+    			printf("vous avez %d\n", argentJoueur );
     		}
 
     		if (itemachat == 6){
-    			printf("OH OUI PRENDS CETTE HORREUR ! ... hum, je veux dire... Un choix judicieux. \n");
-    			argentJoueur = argentJoueur - peluche.prix;
+    			printf("Prends la, elle terminera ton costume en pierre. \n");
+    			argentJoueur = argentJoueur - amulette.prix;
 				peluche1 = peluche1 + 1;
-    			printf("Zyva il te reste %d\n", argentJoueur );
+    			printf("vous avez %d\n", argentJoueur );
     		}
 	}
 
@@ -217,18 +218,19 @@ int main()
 	
 		if (choix == 3){
 		printf("Vous possédez \n %d %s \n", epee1, epee.nomObjet);
-		printf("\n %d %s \n", bouclier1, casque.nomObjet);
-    	printf("\n %d %s \n", potion1, potion.nomObjet);
-    	printf("\n %d %s \n", lance1, lance.nomObjet);
-    	printf("\n %d %s \n", armure1, armure.nomObjet);
-    	printf("\n %d %s \n", peluche1, peluche.nomObjet);
+		printf("Vous possédez \n %d %s \n", bouclier1, casque.nomObjet);
+    	printf("Vous possédez \n %d %s \n", potion1, ceinture.nomObjet);
+    	printf("Vous possédez \n %d %s \n", lance1, bottes.nomObjet);
+    	printf("Vous possédez \n %d %s \n", armure1, cape.nomObjet);
+    	printf("Vous possédez \n %d %s \n", peluche1, amulette.nomObjet);
 	}
 
 		}
 
 		if (argentJoueur <= 0){
-			printf("T'as plus d'argent fdp \n");
-			printf(" *Vous etes jete dehors* \n");
+			printf("T'as plus d'argent , dommage essaye encore une fois. \n");
 		}
 }
+if (main<<10) {
+	main++;
 }
